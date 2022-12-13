@@ -2,13 +2,14 @@
 import boto3
 import os
 import glob
+import json
 
 # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Bucket.create
 
 aws_resource = boto3.resource("s3")
 s3_resource = boto3.client("s3")
 
-# create a bucket
+# # create a bucket
 # my_bucket = aws_resource.Bucket("pingpingbucket")
 # response = my_bucket.create(
 #     ACL='public-read',
@@ -32,23 +33,38 @@ s3_resource = boto3.client("s3")
 # s3_resource.upload_file(Filename="Test/Python/aws/file_read.py", Bucket="pingpingbucket", Key="file_read.py")
 
 # uplocad multiple files
-cwd = os.getcwd()
+# cwd = os.getcwd()
 # cwd = cwd + "/Test/Python/aws/"
 # files = glob.glob(cwd + "*.py")
 
 # for file in files:
 #     s3_resource.upload_file(Filename=file, Bucket="pingpingbucket", Key=file.split("/")[-1])
     
-# list objects
-objects = s3_resource.list_objects(Bucket="pingpingbucket")["Contents"]
+# # list objects
+# objects = s3_resource.list_objects(Bucket="pingpingbucket")["Contents"]
 
-# if len(objects) > 0:
-#     for object in objects:
-#         print(object["Key"])
+# # if len(objects) > 0:
+# #     for object in objects:
+# #         print(object["Key"])
 
-# delete single file
-s3_resource.delete_object(Bucket="pingpingbucket", Key="s3.py")
+# # delete single file
+# s3_resource.delete_object(Bucket="pingpingbucket", Key="s3.py")
 
-# delete multiple files
-for object in objects:
-    s3_resource.delete_object(Bucket="pingpingbucket", Key=object["Key"])
+# # delete multiple files
+# for object in objects:
+#     s3_resource.delete_object(Bucket="pingpingbucket", Key=object["Key"])
+
+# # Update the policy
+# bucket_policy = {
+#     'Version': '2012-10-17',
+#     'Statement': [{
+#         'Sid': 'AddPerm',
+#         'Effect': 'Allow',
+#         'Principal': '*',
+#         'Action': ['s3:GetObject'],
+#         'Resource': f'arn:aws:s3:::pingpingbucket/*'
+#     }]
+# }
+# bucket_policy = json.dumps(bucket_policy)
+
+# s3_resource.put_bucket_policy(Bucket="pingpingbucket", Policy=bucket_policy)

@@ -8,6 +8,7 @@ def ec2_names(number, dept):
     letters = string.ascii_lowercase
     for i in range(number):
         char = ''.join(random.choice(letters) for i in range(3))
+        # or: randomNumLetter = ''.join(random.choices(string.ascii_lowercase + string.digits, k=7))
         num = random.randrange(1000,99999)
         EC2s.append(dept + '-' + char + '-' + str(num))
     return EC2s
