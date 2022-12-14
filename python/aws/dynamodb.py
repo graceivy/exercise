@@ -38,7 +38,6 @@ dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 # print("Table status:", table.table_status)
 
 # # Load data to the table
-
 # table = dynamodb.Table('Movies')
 
 # with open("Test/python/aws/moviedata.json") as json_file:
@@ -239,10 +238,10 @@ year = 2015
 # #     print(json.dumps(i, cls=DecimalEncoder))
 
 # # LastEvaluatedKey: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html
-# The scan method returns a subset of the items each time, called a page. 
-# The LastEvaluatedKey value in the response is then passed to the scan method via the ExclusiveStartKey parameter. 
-# When the last page is returned, LastEvaluatedKey is not part of the response.
-# while 'LastEvaluatedKey' in response:
+# # The scan method returns a subset of the items each time, called a page. 
+# # The LastEvaluatedKey value in the response is then passed to the scan method via the ExclusiveStartKey parameter. 
+# # When the last page is returned, LastEvaluatedKey is not part of the response.
+# # while 'LastEvaluatedKey' in response:
 #     response = table.scan(
 #         ProjectionExpression=pe,
 #         FilterExpression=fe,
