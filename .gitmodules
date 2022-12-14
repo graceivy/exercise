@@ -1,0 +1,3 @@
+[submodule "python/boto3_python_scripts"]
+	path = python/boto3_python_scripts
+	url = https://github.com/zaireali649/boto3_python_scripts

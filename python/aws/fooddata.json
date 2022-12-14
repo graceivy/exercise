@@ -1,0 +1,57 @@
+[
+    {
+        "name": "lobster",
+        "type": "seafood",
+        "rank": 1
+    },
+    {
+        "name": "crab",
+        "type": "seafood",
+        "rank": 2
+    },
+    {
+        "name": "fish",
+        "type": "seafood",
+        "rank": 3
+    },
+    {
+        "name": "durian",
+        "type": "fruit",
+        "rank": 1
+    },
+    {
+        "name": "mango",
+        "type": "fruit",
+        "rank": 3
+    },
+    {
+        "name": "cake",
+        "type": "snack",
+        "rank": 1
+    },
+    {
+        "name": "rice",
+        "type": "grain",
+        "rank": 1
+    },
+    {
+        "name": "noodle",
+        "type": "grain",
+        "rank": 3
+    },
+    {
+        "name": "cheese",
+        "type": "snack",
+        "rank": 2
+    },
+    {
+        "name": "riceroll",
+        "type": "breakfast",
+        "rank": 2
+    },
+    {
+        "name": "dimsum",
+        "type": "breakfast",
+        "rank": 1
+    }
+]
