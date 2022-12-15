@@ -9,8 +9,8 @@ from botocore.exceptions import ClientError
 dynamodb = boto3.resource(
     'dynamodb',
     region_name='us-east-1',
-    aws_access_key_id='AKIAZ3APSXWHZOHB3FV2',
-    aws_secret_access_key='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',
+    aws_access_key_id='',
+    aws_secret_access_key='',
     )
 table = dynamodb.Table('Food')
 
