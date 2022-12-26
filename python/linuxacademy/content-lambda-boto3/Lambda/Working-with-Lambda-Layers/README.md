@@ -48,3 +48,18 @@ aws lambda publish-layer-version \
 ```
 
 Note the `LayerArn` in the output.
+
+
+My approach
+pip3 install pipenv
+(pipenv --python 3.7)
+pipenv shell
+pipenv install requests
+PY_DIR='build/python/lib/python3.7/site-packages'
+mkdir -p $PY_DIR
+pipenv requirements > requirements.txt
+cat requirements.txt
+cd build
+zip -r ../requests_layer.zip .
+rm -r build
+aws lambda publish-layer-version --layer-name requests --compatible-runtimes python3.7 --zip-file fileb://requests_layer.zip
