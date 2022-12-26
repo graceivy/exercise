@@ -23,7 +23,7 @@ Create the Lambda function deployment package by running the following `package`
 ```sh
 sam package \
     --output-template-file packaged.yaml \
-    --s3-bucket 123456789012-shopping-cart-app
+    --s3-bucket pingpingbucket
 ```
 
 In the AWS SAM CLI, use the `deploy` command to deploy all of the resources that you defined in the template.

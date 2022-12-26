@@ -76,4 +76,4 @@ def lambda_handler(event, context):
     "statusCode":statusCode,
     "body":body,
     "headers": headers
-  };
+    }
