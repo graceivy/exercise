@@ -46,10 +46,35 @@ resource "aws_instance" "mtc_node" {
   root_block_device {
     volume_size = var.vol_size # 10
   }
+  
+  provisioner "remote-exec" {
+    connection {
+      type = "ssh"
+      user = "ec2-user"
+      host = self.public_ip
+      private_key = file(var.private_key_path)  #"/home/ubuntu/.ssh/keymtc"
+    }
+    script = "${path.cwd}/delay.sh"
+  }
+  
+  provisioner "local-exec" {
+    command = templatefile("${path.cwd}/scp_script.tpl", {
+      nodeip   = self.public_ip
+      k3s_path = "${path.cwd}/../"
+      nodename = self.tags.Name
+    })
+  }
+  
+    provisioner "local-exec" {
+    when    = destroy
+    command = "rm -f ${path.cwd}/../k3s-${self.tags.Name}.yaml"
+    # on_failure = continue
+  }
 }
 
+
 resource "aws_lb_target_group_attachment" "mtc_tg_attach" {
-  count = var.instance_count
+  count            = var.instance_count
   target_group_arn = var.lb_target_group_arn
   target_id        = aws_instance.mtc_node[count.index].id
   port             = var.tg_port
