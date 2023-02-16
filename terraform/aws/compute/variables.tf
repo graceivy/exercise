@@ -21,3 +21,6 @@ variable "dbname" {}
 # --- target group attachment ---
 variable "lb_target_group_arn" {}
 variable "tg_port" {}
+
+# --- provisioner ---
+variable "private_key_path" {}
